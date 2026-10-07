@@ -1,0 +1,34 @@
+{
+  "ruleId": "PD-004",
+  "configure": {
+    "PD-004": {
+      "values": [
+        "单选题",
+        "多选题",
+        "判断题",
+        "填空题",
+        "简答题",
+        "计算题",
+        "作文题"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "PD-004-compliant.json",
+      "expect": {
+        "ruleId": "PD-004",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "PD-004-unsafe.json",
+      "expect": {
+        "ruleId": "PD-004",
+        "count": 1
+      }
+    }
+  ]
+}

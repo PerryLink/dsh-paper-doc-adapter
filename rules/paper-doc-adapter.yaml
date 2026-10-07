@@ -1,0 +1,205 @@
+# 试卷解析结构核对 规则库
+#
+# 规则数据与代码分离：替换本文件即可切换规则集版本，无需改动 TypeScript。
+#
+# 条款引用纪律（由 shared/ruleset.ts 强制校验）：
+#   - 每条规则必须写全 document / number / clause / excerpt / kind / source，
+#     且 excerpt 必须是逐字摘录，不得改写。
+#   - kind: direct                       条款直接规定了所检查的要求
+#   - kind: derived-from-principle       条款未直接规定，仅能由原则性条款推论（severity 最多 warn）
+#   - kind: institutional-configuration 阈值出自本机构配置（severity 最多 info）
+#
+# ⚠️⚠️ 本规则库的诚实说明：**excerpt 一律不是引文。**
+#   本插件核对的是"试卷解析结果"的**结构自洽**：
+#     题号与题干是否填写、题型是否在册、答案与解析是否齐备、
+#     各题分值合计是否等于试卷总分、难度系数是否在可解析范围内、
+#     题目标识（yotta ID）是否唯一且齐备、知识点是否填写、是否残留模板占位符。
+#   其规范载体是**《中华人民共和国教育行业标准 试题元数据规范》（JY/T 0606 系列）**
+#   与**《国家教育考试网上评卷技术规范》**等；**核查未取得这些文件的逐字条文**，
+#   也**未核实 yotta 平台的具体字段要求**，故每条 excerpt 如实写明，
+#   kind 降为 derived-from-principle（封顶 warn）。
+#
+# ⚠️⚠️ 另一条**必须保留**的边界：**本插件绝不判定题目出得好不好、
+#   答案是否正确、难度是否恰当、试卷是否达到考核目标**。
+#   那需要学科专家审题，是命题与审卷的实质内容。
+#   → 本插件只核对**解析结果自身的结构**："字段齐不齐、分值加不加得对、
+#     难度系数是不是在 0—1 之间、标识有没有重复"。
+#   → ⚠️ **它不校对题干与选项的对应关系**（例如答案字母是否在选项范围内）：
+#     那需要解析题型的结构，本插件按通用表格处理，**不做题型特化**。
+#   → **题型清单（questionTypes）与难度范围（difficultyMin/Max）都由使用方配置。**
+
+plugin: dsh-paper-doc-adapter
+version: "2026.1"
+
+rules:
+  - id: PD-001
+    title: 每道题都应填写题号与题干
+    severity: warn
+    basis:
+      document: 《试题元数据规范》
+      number: JY/T 0606 系列（本次未取得条文）
+      clause: 关于试题基本信息的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: presenceAny
+          fields: ["questionNo","stem"]
+          fix: 补填题号与题干；本条只核对是否填写，不判断题目质量
+    note: >-
+      题号与题干是解析结果的**最小单位**：缺其一，
+      这份解析就无法与试卷原卷对应，也无法导入题库。本次未取得明文条号，故封顶 warn。
+      本条只核对"至少填了一个"，**不判断题目出得好不好、题干是否严谨**。
+
+  - id: PD-002
+    title: 每道题都应填写答案与解析
+    severity: warn
+    basis:
+      document: 《试题元数据规范》
+      number: JY/T 0606 系列（本次未取得条文）
+      clause: 关于答案与解析元数据的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: presenceAny
+          fields: ["answer","explanation"]
+          fix: 补填答案与解析；本条只核对是否填写，不判断答案是否正确
+    note: >-
+      答案与解析是题库的**核心内容**：缺答案的题目无法用于测评，
+      缺解析的题目无法用于学习。本次未取得明文条号，故封顶 warn。
+      ⚠️ 本条只核对"至少填了一个"，**不核对答案是否正确**——
+      那需要学科专家逐题审校，是命题与审卷的实质工作。
+
+  - id: PD-003
+    title: 各题分值合计应等于试卷总分
+    severity: warn
+    basis:
+      document: 《试题元数据规范》
+      number: JY/T 0606 系列（本次未取得条文）
+      clause: 关于试卷分值的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: sum
+          field: score
+          headerField: totalScore
+          tolerance: 0.01
+    note: >-
+      各题分值之和与试卷总分相符，是**试卷结构最基本的算术恒等式**：
+      不相等说明漏题、分值抄错或多算了题。本次未取得明文条号，故封顶 warn。
+      试卷总分取自**材料表头**（引擎会先在行内找，再回落到表头）。
+      本条只做加法核对，**不判断分值分配是否合理**。
+
+  - id: PD-004
+    title: 题型应使用本机构口径的取值
+    severity: info
+    basis:
+      document: 本机构题库与命题口径（本机构配置）
+      number: 无统一标准（本条依据为本机构配置的题型口径）
+      clause: 关于题型分类的条款（本次未取得条号）
+      excerpt: 本条依据为本机构配置的口径，不存在可引用的标准条文；本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: enum
+          field: questionType
+          values: []
+    note: >-
+      values 出厂为空，表示**未配置**，本条进 skipped。
+      依据说明：题型的命名口径（例如「单选题」「多选题」「判断题」「填空题」
+      「简答题」「计算题」「作文题」）随**本机构题库口径**变化，
+      本插件**不硬编码任何题型清单**，也**不针对题型做结构校验**。
+      本条只核对所填值是否在册。
+
+  - id: PD-005
+    title: 难度系数应落在配置的取值范围内
+    severity: info
+    basis:
+      document: 本机构题库与命题口径（本机构配置）
+      number: 无统一标准（本条依据为本机构配置的难度口径）
+      clause: 关于难度系数的条款（本次未取得条号）
+      excerpt: 本条依据为本机构配置的口径，不存在可引用的标准条文；本规则库不伪造引文。
+      kind: institutional-configuration
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: number
+          field: difficulty
+          min: 0
+          max: 1
+    note: >-
+      难度系数通常以 0—1 之间的小数表示（越大越易），因此本条核对它是否落在 0—1 之内。
+      本次未取得明文条号，故封顶 info。
+      ⚠️ **0—1 是本机构配置的范围、不是标准规定的唯一刻度**：
+      若本机构使用 1—5 或百分制难度，请调整 min/max（或停用本条）。
+      本条只核对范围，**不判断难度是否恰当**——那要看成績分布与考核目标。
+
+  - id: PD-006
+    title: 题目标识应齐备且唯一
+    severity: warn
+    basis:
+      document: 《试题元数据规范》
+      number: JY/T 0606 系列（本次未取得条文）
+      clause: 关于试题唯一标识的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: unique
+          field: yottaId
+    note: >-
+      题库导入的**前提是每道题有唯一标识**：标识缺失会让题目无法入库，
+      标识重复会让重复题覆盖已有题目（**后者比前者更危险，因为它是静默的**）。
+      本次未取得明文条号，故封顶 warn。比较时忽略空白字符。
+      ⚠️ 本条按 **yotta 标识**核对；未填该栏时本条进 skipped（**不会静默通过**）。
+      若本机构使用其它标识体系，把该字段的别名加进模型的 yottaId 即可。
+
+  - id: PD-007
+    title: 每道题都应填写知识点
+    severity: warn
+    basis:
+      document: 《试题元数据规范》
+      number: JY/T 0606 系列（本次未取得条文）
+      clause: 关于知识点标注的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: presence
+          field: knowledge
+          fix: 补填知识点；本条只核对是否标注，不判断标注是否准确
+    note: >-
+      知识点是题库**组卷与学情分析的基础**：不标注，
+      这份解析就只能当"电子版试卷"用，发挥不了题库的价值。本次未取得明文条号，故封顶 warn。
+      ⚠️ 本条只核对知识点栏是否填写，**不判断标注是否准确、是否符合本机构的知识体系**。
+
+  - id: PD-008
+    title: 题干栏不应残留未替换的占位符
+    severity: warn
+    basis:
+      document: 《试题元数据规范》
+      number: JY/T 0606 系列（本次未取得条文）
+      clause: 关于试题内容的条款（本次未取得条号）
+      excerpt: 该条文本次未取得：核查未获得该文件的逐字原文，本规则库不伪造引文。
+      kind: derived-from-principle
+      source: https://www.moe.gov.cn/
+    params:
+        check:
+          kind: containsAny
+          field: stem
+          terms: ["【","】","{{","}}","XXX","xxx","待填","待补充","TBD","todo","示例"]
+          fix: 题干应填写实际题目内容；残留占位符说明解析结果是照模板抄的
+    note: >-
+      解析结果若直接照抄模板，题干栏留下【】、XXX、待填、TBD 之类占位符时，
+      会让人误以为题目已解析完成 —— **而这批数据是要进题库的**。
+      本次未取得明文条号，故封顶 warn。terms 可按本机构模板调整。
+
+disabled: []
