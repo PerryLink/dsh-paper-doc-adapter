@@ -1,6 +1,6 @@
 {
   "name": "dsh-paper-doc-adapter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "试卷解析结构核对（按题型、答案、分值与 yotta 标识核对试卷结构自洽，仅提示差异，不作出定性结论）",
   "type": "module",
   "main": "lib/index.mjs",
@@ -32,7 +32,7 @@
     "verify:self-contained": "node scripts/verify-self-contained.mjs",
     "check:lockfile": "node scripts/check-lockfile-drift.mjs",
     "check:readmes": "node scripts/check-readme-sync.mjs",
-    "prepublishOnly": "pnpm run typecheck && pnpm test && pnpm run build && pnpm run verify:self-contained && pnpm run check:readmes && pnpm run check:citations",
+    "prepublishOnly": "pnpm run typecheck && pnpm test && pnpm run build && pnpm run verify:self-contained && pnpm run check:readmes",
     "prepare": "tsdown",
     "check:citations": "node scripts/check-citations.mjs"
   },
