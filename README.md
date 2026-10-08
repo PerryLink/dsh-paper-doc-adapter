@@ -1,4 +1,25 @@
-# dsh-paper-doc-adapter
+# dsh-paper-doc-adapter — Parsed exam paper structural self-consistency check across question type, answer, score and yotta identifier
+
+`dsh-paper-doc-adapter` reads one parsed exam paper — the paper header plus one row per question — and checks that parse result's own structural self-consistency: that each question records its number and stem, that an answer or an explanation is present, that the question scores total the paper score the header states, that the question type comes from the vocabulary you configure, that the difficulty coefficient falls inside your range, that question identifiers are present and unique, that a knowledge point is recorded, and that no template placeholder survives in the stem.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| Both the question number and the stem are blank on a row — does the check say anything? | Yes. `PD-001` reports a row whose `questionNo` and `stem` are both empty, because it asks for at least one of the two. It checks that something is filled, not whether the question is well written or the stem rigorous. |
+| A question has its number and stem, but neither an answer nor an explanation. | `PD-002` reports that row: it asks for at least one of `answer` and `explanation`. It does not check whether the answer is correct — that is subject-expert review, and the pack says as much. |
+| The question scores add up to 98 while the header says 100 — is that caught? | Yes. `PD-003` adds the `score` column and compares the total with the `totalScore` the paper header states, allowing the configured tolerance of 0.01; if the header total is not a parseable number it reports itself in `skipped` instead. It only does the addition — whether the marks are distributed sensibly is not judged. |
+| We never listed our own question types. What does the tool do with the question type column? | `PD-004` reports itself in `skipped`, because its `values` list ships empty: naming question types is your institution's convention and the engine hard-codes no list. Once you configure your values, a `questionType` outside them is reported; the rule then checks membership only, and it performs no question-type-specific structure check. |
+| The difficulty column holds `1.2` in one row and `中等` in another — what comes back? | `PD-005` reports the value it cannot parse as a number and the value outside the configured `min`/`max` range of 0–1. That range is your institution's convention, not the only scale — 1–5 or a percentage needs `min`/`max` changed or the rule disabled. It checks the range only, never whether the difficulty is appropriate, and it is capped at `info`. |
+| Two questions carry the same yotta identifier. Why is that worse than a blank one? | `PD-006` reports the repeated value, comparing with whitespace ignored, because importing that parse result would silently overwrite an existing question; a blank identifier only keeps that one question out. With no identifier filled anywhere the rule reports itself in `skipped`. It checks presence and uniqueness, and nothing beyond that. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《试题元数据规范》 | JY/T 0606 系列（本次未取得条文） | PD-001, PD-002, PD-003, PD-006, PD-007, PD-008 |
+| 本机构题库与命题口径（本机构配置） | 无统一标准（本条依据为本机构配置的题型口径） | PD-004 |
+| 本机构题库与命题口径（本机构配置） | 无统一标准（本条依据为本机构配置的难度口径） | PD-005 |
 
 **Boundary:** this plugin checks a **试卷解析结果** for structural self-consistency — that each question records its
 number and stem, that an answer or an explanation is present, that the question scores total the paper's score,

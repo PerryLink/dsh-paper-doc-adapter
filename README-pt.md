@@ -1,4 +1,25 @@
-# dsh-paper-doc-adapter
+# dsh-paper-doc-adapter — Verificação da coerência estrutural de um exame analisado: tipo de questão, resposta, pontuação e identificador yotta
+
+`dsh-paper-doc-adapter` lê um exame já analisado —o cabeçalho do exame mais uma linha por questão— e verifica a coerência estrutural interna desse resultado: se cada questão regista o seu número e o seu enunciado, se há uma resposta ou uma explicação, se a soma das pontuações das questões coincide com a pontuação total indicada no cabeçalho, se o tipo de questão vem do vocabulário que você configura, se o coeficiente de dificuldade fica dentro do seu intervalo, se os identificadores de questão estão presentes e não se repetem, se um ponto de conhecimento está registado e se não resta nenhum marcador de modelo no enunciado.
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| Numa linha estão vazios tanto o número como o enunciado — isso é reportado? | Sim. `PD-001` reporta a linha cujo `questionNo` e `stem` estão ambos vazios, porque exige que pelo menos um dos dois seja preenchido. Verifica que algo está preenchido, não se a questão está bem redigida ou o enunciado é rigoroso. |
+| Uma questão tem número e enunciado, mas nem resposta nem explicação. | `PD-002` reporta essa linha: exige pelo menos um de `answer` e `explanation`. Não verifica se a resposta está correta — isso é revisão de um especialista da matéria, e o próprio pacote o diz. |
+| As pontuações somam 98 e o cabeçalho diz 100 — isso é detetado? | Sim. `PD-003` soma a coluna `score` e compara o total com o `totalScore` indicado no cabeçalho do exame, com a tolerância configurada de 0.01; se o total do cabeçalho não for um número analisável, reporta em `skipped` que não pôde ser executada. Faz apenas a soma: não julga se a distribuição dos pontos é razoável. |
+| Nunca declarámos os nossos próprios tipos de questão. O que a ferramenta faz com essa coluna? | `PD-004` reporta em `skipped` que não pôde ser executada, porque a sua lista `values` vem vazia: nomear os tipos de questão é convenção da sua instituição e o motor não codifica nenhuma lista. Ao configurar os seus valores, um `questionType` fora deles é reportado; a regra passa então a verificar apenas a pertença e não faz nenhuma validação estrutural por tipo de questão. |
+| A coluna da dificuldade traz `1.2` numa linha e `中等` noutra — o que devolve? | `PD-005` reporta o valor que não consegue analisar como número e o que fica fora do intervalo `min`/`max` configurado, 0–1. Esse intervalo é convenção da sua instituição, não a única escala: com 1–5 ou percentagens é preciso alterar `min`/`max` ou desativar a regra. Verifica apenas o intervalo, nunca se a dificuldade é adequada, e está limitada a `info`. |
+| Duas questões trazem o mesmo identificador yotta. Porque é pior do que um vazio? | `PD-006` reporta o valor repetido, comparando sem espaços, porque importar esse resultado sobrescreveria silenciosamente uma questão existente; um identificador vazio apenas deixa essa questão de fora. Se nenhuma linha trouxer identificador, a regra reporta em `skipped` que não pôde ser executada. Verifica presença e unicidade, e nada além disso. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《试题元数据规范》 | JY/T 0606 系列（本次未取得条文） | PD-001, PD-002, PD-003, PD-006, PD-007, PD-008 |
+| 本机构题库与命题口径（本机构配置） | 无统一标准（本条依据为本机构配置的题型口径） | PD-004 |
+| 本机构题库与命题口径（本机构配置） | 无统一标准（本条依据为本机构配置的难度口径） | PD-005 |
 
 **Boundary:** this plugin checks a **试卷解析结果** for structural self-consistency — that each question records its
 number and stem, that an answer or an explanation is present, that the question scores total the paper's score,
