@@ -43,8 +43,7 @@ appropriate, or whether the paper meets its assessment objectives.
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./*.tgz
+dsh plugin --profile <name> add dsh-paper-doc-adapter
 dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
 ```
 

@@ -55,8 +55,7 @@ applies a versioned rule pack, and returns a report.
 ## Install
 
 ```sh
-pnpm pack
-dsh plugin --profile <name> add ./dsh-paper-doc-adapter-0.1.0.tgz
+dsh plugin --profile <name> add dsh-paper-doc-adapter
 dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
 ```
 
