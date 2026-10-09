@@ -1,6 +1,6 @@
 {
   "name": "dsh-paper-doc-adapter",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "试卷解析结构核对（按题型、答案、分值与 yotta 标识核对试卷结构自洽，仅提示差异，不作出定性结论）",
   "type": "module",
   "main": "lib/index.mjs",
