@@ -1,6 +1,14 @@
 # dsh-paper-doc-adapter — Verificação da coerência estrutural de um exame analisado: tipo de questão, resposta, pontuação e identificador yotta
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-paper-doc-adapter` lê um exame já analisado —o cabeçalho do exame mais uma linha por questão— e verifica a coerência estrutural interna desse resultado: se cada questão regista o seu número e o seu enunciado, se há uma resposta ou uma explicação, se a soma das pontuações das questões coincide com a pontuação total indicada no cabeçalho, se o tipo de questão vem do vocabulário que você configura, se o coeficiente de dificuldade fica dentro do seu intervalo, se os identificadores de questão estão presentes e não se repetem, se um ponto de conhecimento está registado e se não resta nenhum marcador de modelo no enunciado.
+
+## Como é a saída
+
+![Terminal demo of dsh-paper-doc-adapter: real output over its PD-006 fixture](https://raw.githubusercontent.com/PerryLink/dsh-paper-doc-adapter/main/docs/assets/dsh-paper-doc-adapter-demo.png)
+
+Saída real deste plugin sobre o seu próprio fixture de teste `PD-006` — não é uma simulação. O pacote de regras não inventa citações, por isso cada achado nomeia a cláusula aplicada e avisa que o seu texto não foi obtido.
 
 ## O que ele responde
 
