@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-paper-doc-adapter-hero.png",
+    "kind": "hero",
+    "alt": "dsh-paper-doc-adapter terminal output",
+    "caption": "Real dsh-paper-doc-adapter checker output; 31 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-paper-doc-adapter-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-paper-doc-adapter terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]
