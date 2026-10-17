@@ -4,6 +4,13 @@
 
 `dsh-paper-doc-adapter` lee un examen ya analizado —la cabecera del examen más una fila por pregunta— y comprueba la coherencia estructural interna de ese resultado: que cada pregunta registre su número y su enunciado, que haya una respuesta o una explicación, que la suma de las puntuaciones de las preguntas coincida con la puntuación total que indica la cabecera, que el tipo de pregunta provenga del vocabulario que usted configura, que el coeficiente de dificultad quede dentro de su rango, que los identificadores de pregunta estén presentes y no se repitan, que se registre un punto de conocimiento y que no quede ningún marcador de plantilla en el enunciado.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-paper-doc-adapter
+dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
+```
+
 ## Cómo se ve la salida
 
 ![Terminal demo of dsh-paper-doc-adapter: real output over its PD-006 fixture](https://raw.githubusercontent.com/PerryLink/dsh-paper-doc-adapter/main/docs/assets/dsh-paper-doc-adapter-hero.png)
@@ -70,13 +77,6 @@ appropriate, or whether the paper meets its assessment objectives.
 ## What it does
 
 La tabla de reglas, los campos y el comportamiento detallado están en [README.md](README.md#what-it-does) (versión principal en inglés). El plugin sólo enumera divergencias literales frente a las cláusulas citadas e indica en `skipped` cada comprobación que no pudo ejecutarse.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-paper-doc-adapter
-dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
-```
 
 ## Configuration
 

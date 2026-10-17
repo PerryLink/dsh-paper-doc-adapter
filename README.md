@@ -4,6 +4,13 @@
 
 `dsh-paper-doc-adapter` reads one parsed exam paper — the paper header plus one row per question — and checks that parse result's own structural self-consistency: that each question records its number and stem, that an answer or an explanation is present, that the question scores total the paper score the header states, that the question type comes from the vocabulary you configure, that the difficulty coefficient falls inside your range, that question identifiers are present and unique, that a knowledge point is recorded, and that no template placeholder survives in the stem.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-paper-doc-adapter
+dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
+```
+
 ## What it looks like
 
 ![Terminal demo of dsh-paper-doc-adapter: real output over its PD-006 fixture](https://raw.githubusercontent.com/PerryLink/dsh-paper-doc-adapter/main/docs/assets/dsh-paper-doc-adapter-hero.png)
@@ -82,13 +89,6 @@ applies a versioned rule pack, and returns a report.
 | `PD-006` | question identifiers are present and unique | warn | principle |
 | `PD-007` | a knowledge point is recorded | warn | principle |
 | `PD-008` | the stem holds no unreplaced placeholder | warn | principle |
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-paper-doc-adapter
-dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
-```
 
 ## Configuration
 

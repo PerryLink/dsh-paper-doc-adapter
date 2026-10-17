@@ -4,6 +4,13 @@
 
 `dsh-paper-doc-adapter` एक विश्लेषित प्रश्नपत्र पढ़ता है — प्रश्नपत्र का हेडर और प्रत्येक प्रश्न की एक पंक्ति — और उसी विश्लेषण-परिणाम की आंतरिक संरचनात्मक संगति जाँचता है: क्या प्रत्येक प्रश्न में उसका क्रमांक और प्रश्न-कथन दर्ज है, क्या उत्तर या व्याख्या में से कम से कम एक दर्ज है, क्या सभी प्रश्नों के अंकों का जोड़ हेडर में लिखे कुल अंक के बराबर है, क्या प्रश्न-प्रकार आपके द्वारा कॉन्फ़िगर की गई सूची से आता है, क्या कठिनाई-गुणांक आपकी निर्धारित सीमा के भीतर है, क्या प्रश्न-पहचानकर्ता दर्ज और अद्वितीय हैं, क्या ज्ञान-बिंदु दर्ज है, और क्या प्रश्न-कथन में कोई टेम्पलेट प्लेसहोल्डर शेष नहीं है।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-paper-doc-adapter
+dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-paper-doc-adapter: real output over its PD-006 fixture](https://raw.githubusercontent.com/PerryLink/dsh-paper-doc-adapter/main/docs/assets/dsh-paper-doc-adapter-hero.png)
@@ -70,13 +77,6 @@ appropriate, or whether the paper meets its assessment objectives.
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-paper-doc-adapter
-dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
-```
 
 ## Configuration
 

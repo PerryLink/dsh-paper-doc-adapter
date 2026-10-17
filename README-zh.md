@@ -4,6 +4,13 @@
 
 `dsh-paper-doc-adapter` 读取一份试卷解析结果——试卷表头加每道题一行——核对这份解析结果自身的结构自洽：每道题是否填写了题号与题干、是否填写了答案或解析、各题分值合计是否等于表头写的试卷总分、题型取值是否出自你配置的口径、难度系数是否落在你配置的范围内、题目标识是否齐备且唯一、是否标注了知识点、题干栏是否残留模板占位符。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-paper-doc-adapter
+dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-paper-doc-adapter: real output over its PD-006 fixture](https://raw.githubusercontent.com/PerryLink/dsh-paper-doc-adapter/main/docs/assets/dsh-paper-doc-adapter-hero.png)
@@ -70,13 +77,6 @@ appropriate, or whether the paper meets its assessment objectives.
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-paper-doc-adapter
-dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
-```
 
 ## Configuration
 
