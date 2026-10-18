@@ -1,5 +1,7 @@
 # dsh-paper-doc-adapter — 试卷解析结构核对
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-paper-doc-adapter` 读取一份试卷解析结果——试卷表头加每道题一行——核对这份解析结果自身的结构自洽：每道题是否填写了题号与题干、是否填写了答案或解析、各题分值合计是否等于表头写的试卷总分、题型取值是否出自你配置的口径、难度系数是否落在你配置的范围内、题目标识是否齐备且唯一、是否标注了知识点、题干栏是否残留模板占位符。

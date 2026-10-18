@@ -1,5 +1,7 @@
 # dsh-paper-doc-adapter — Verificación de la coherencia estructural de un examen analizado: tipo de pregunta, respuesta, puntuación e identificador yotta
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-paper-doc-adapter` lee un examen ya analizado —la cabecera del examen más una fila por pregunta— y comprueba la coherencia estructural interna de ese resultado: que cada pregunta registre su número y su enunciado, que haya una respuesta o una explicación, que la suma de las puntuaciones de las preguntas coincida con la puntuación total que indica la cabecera, que el tipo de pregunta provenga del vocabulario que usted configura, que el coeficiente de dificultad quede dentro de su rango, que los identificadores de pregunta estén presentes y no se repitan, que se registre un punto de conocimiento y que no quede ningún marcador de plantilla en el enunciado.

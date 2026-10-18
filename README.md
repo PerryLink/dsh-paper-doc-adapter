@@ -1,5 +1,7 @@
 # dsh-paper-doc-adapter — Parsed exam paper structural self-consistency check across question type, answer, score and yotta identifier
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-paper-doc-adapter` reads one parsed exam paper — the paper header plus one row per question — and checks that parse result's own structural self-consistency: that each question records its number and stem, that an answer or an explanation is present, that the question scores total the paper score the header states, that the question type comes from the vocabulary you configure, that the difficulty coefficient falls inside your range, that question identifiers are present and unique, that a knowledge point is recorded, and that no template placeholder survives in the stem.
