@@ -42,25 +42,15 @@ dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
 
 **边界（中文译文，以英文原文为准）：** 本插件核对一份 **试卷解析结果** 的结构自洽——每道题是否记录了题号与题干，是否填写了答案或解析，各题分值合计是否等于试卷总分，题型是否取自你的取值口径，难度系数是否落在你配置的范围内，题目标识是否齐备且唯一，是否标注了知识点，以及是否残留占位符。它**不**判定题目是否写得好、答案是否正确、难度是否恰当，或试卷是否达到其考查目标。
 
-> ### ⚠️ What this plugin deliberately does not do
+> ### ⚠️ 这个插件刻意不做的事（以英文原文为准）
 >
-> **It treats the paper as a generic table and performs no question-type-specific checking.** So it **does not
-> verify that an answer letter falls within the options offered**, that a fill-in-the-blank has the right number of
-> blanks, or that a multiple-choice question has exactly one correct option. Those need the structure of each
-> question type parsed, which this adapter does not attempt. That boundary is stated in the pack's header and in
-> the troubleshooting section.
+> **它把试卷当作一张通用表格处理，不执行任何针对题型的分项核对。** 因此它**不核对答案字母是否落在所给选项范围内**，不核对填空题的空数是否正确，也不核对选择题是否恰好只有一个正确选项。这些都需要解析每种题型自身的结构，而本适配器并不尝试这样做。这条边界写在规则库库头和排障一节中。
 >
-> **It never checks whether data is fit to import into a question bank beyond key presence and uniqueness.** A
-> duplicate identifier is the dangerous case — importing would silently overwrite an existing question — which is
-> why `PD-006` is `warn` and why it reports itself in `skipped` when no identifier column is present rather than
-> checking the wrong column.
+> **除了键是否存在及其唯一性之外，它从不核对数据是否适合导入题库。** 重复的标识符是危险情形——导入会静默覆盖已有题目——这就是 `PD-006` 定为 `warn` 的原因，也是在没有标识符列时它会把自己记入 `skipped`、而不是去核对错误列的原因。
 >
-> **The difficulty range `0–1` is a local convention, not the only scale.** It is the common convention, larger
-> meaning easier; a unit using 1–5 or a percentage can change `min`/`max` or disable the rule.
+> **难度区间 `0–1` 是一种本地约定，不是唯一的量表。** 它是常见约定，数值越大表示越容易；使用 1–5 或百分比的单位可以修改 `min`/`max`，或者停用该规则。
 >
-> **Every `excerpt` in the rule pack says, in so many words, that the clause text was not obtained** — the
-> verification pass retrieved neither JY/T 0606's text nor the yotta platform's field specification. When the
-> texts are in hand, replace each `excerpt` with the real clause and raise `kind` to `direct`.
+> **规则库中的每一个 `excerpt` 都明文写着：条款原文本次未取得**——核验环节既没有取得 JY/T 0606 的原文，也没有取得 yotta 平台的字段规范。待取得原文后，请把每个 `excerpt` 换成真实条款，并把 `kind` 提到 `direct`。
 
 ## Compatibility
 
