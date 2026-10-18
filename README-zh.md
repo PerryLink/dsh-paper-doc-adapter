@@ -40,12 +40,7 @@ dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
 | 本机构题库与命题口径（本机构配置） | 无统一标准（本条依据为本机构配置的题型口径） | PD-004 |
 | 本机构题库与命题口径（本机构配置） | 无统一标准（本条依据为本机构配置的难度口径） | PD-005 |
 
-**Boundary:** this plugin checks a **试卷解析结果** for structural self-consistency — that each question records its
-number and stem, that an answer or an explanation is present, that the question scores total the paper's score,
-that the question type comes from your vocabulary, that the difficulty coefficient falls inside your range, that
-question identifiers are present and unique, that a knowledge point is recorded, and that no placeholder survives.
-It does **not** decide whether a question is well written, whether an answer is correct, whether the difficulty is
-appropriate, or whether the paper meets its assessment objectives.
+**边界（中文译文，以英文原文为准）：** 本插件核对一份 **试卷解析结果** 的结构自洽——每道题是否记录了题号与题干，是否填写了答案或解析，各题分值合计是否等于试卷总分，题型是否取自你的取值口径，难度系数是否落在你配置的范围内，题目标识是否齐备且唯一，是否标注了知识点，以及是否残留占位符。它**不**判定题目是否写得好、答案是否正确、难度是否恰当，或试卷是否达到其考查目标。
 
 > ### ⚠️ What this plugin deliberately does not do
 >
