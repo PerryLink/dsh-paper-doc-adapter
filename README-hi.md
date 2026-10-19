@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-paper-doc-adapter?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-paper-doc-adapter?ref=badge)
 
 `dsh-paper-doc-adapter` एक विश्लेषित प्रश्नपत्र पढ़ता है — प्रश्नपत्र का हेडर और प्रत्येक प्रश्न की एक पंक्ति — और उसी विश्लेषण-परिणाम की आंतरिक संरचनात्मक संगति जाँचता है: क्या प्रत्येक प्रश्न में उसका क्रमांक और प्रश्न-कथन दर्ज है, क्या उत्तर या व्याख्या में से कम से कम एक दर्ज है, क्या सभी प्रश्नों के अंकों का जोड़ हेडर में लिखे कुल अंक के बराबर है, क्या प्रश्न-प्रकार आपके द्वारा कॉन्फ़िगर की गई सूची से आता है, क्या कठिनाई-गुणांक आपकी निर्धारित सीमा के भीतर है, क्या प्रश्न-पहचानकर्ता दर्ज और अद्वितीय हैं, क्या ज्ञान-बिंदु दर्ज है, और क्या प्रश्न-कथन में कोई टेम्पलेट प्लेसहोल्डर शेष नहीं है।
 
