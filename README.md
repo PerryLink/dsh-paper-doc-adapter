@@ -28,6 +28,34 @@ dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `paper_doc_adapter`
+
+**Input**
+
+~~~json
+{"paperTitle":"某某科目 2026 年模拟试卷","subject":"某某科目","grade":"高二","totalScore":"3","rows":[{"序号":"1","题号":"","题型":"单选题","题干":"","答案":"B","分值":"3"}]}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-paper-doc-adapter.PD-001.de09b5a6",
+  "ruleId": "PD-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "questionNo"
+  },
+  "found": "第 1 行 questionNo、stem 都为空",
+  "expected": "questionNo、stem 至少应填写一项"
+}
+~~~
+
+*Observed from `dsh-paper-doc-adapter/tests/fixtures/PD-001/PD-001-unsafe.json`*
+
 | You ask | What it answers |
 |---|---|
 | Both the question number and the stem are blank on a row — does the check say anything? | Yes. `PD-001` reports a row whose `questionNo` and `stem` are both empty, because it asks for at least one of the two. It checks that something is filled, not whether the question is well written or the stem rigorous. |

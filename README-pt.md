@@ -29,6 +29,34 @@ Saída real deste plugin sobre o seu próprio fixture de teste `PD-006` — não
 
 A tabela abaixo é o conjunto de exemplos: a primeira linha é o caso detalhado e as demais são casos curtos.
 
+#### Saída detalhada
+
+**Ferramenta** `paper_doc_adapter`
+
+**Entrada**
+
+~~~json
+{"paperTitle":"某某科目 2026 年模拟试卷","subject":"某某科目","grade":"高二","totalScore":"3","rows":[{"序号":"1","题号":"","题型":"单选题","题干":"","答案":"B","分值":"3"}]}
+~~~
+ 
+**Saída**
+
+~~~json
+{
+  "id": "dsh-paper-doc-adapter.PD-001.de09b5a6",
+  "ruleId": "PD-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "questionNo"
+  },
+  "found": "第 1 行 questionNo、stem 都为空",
+  "expected": "questionNo、stem 至少应填写一项"
+}
+~~~
+
+*Observado em `dsh-paper-doc-adapter/tests/fixtures/PD-001/PD-001-unsafe.json`*
+
 | Você pergunta | O que ele responde |
 |---|---|
 | Numa linha estão vazios tanto o número como o enunciado — isso é reportado? | Sim. `PD-001` reporta a linha cujo `questionNo` e `stem` estão ambos vazios, porque exige que pelo menos um dos dois seja preenchido. Verifica que algo está preenchido, não se a questão está bem redigida ou o enunciado é rigoroso. |

@@ -29,6 +29,34 @@ dsh --profile <name> --dump-config | grep 'dsh-paper-doc-adapter'
 
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
+#### 详细输出
+
+**工具** `paper_doc_adapter`
+
+**输入**
+
+~~~json
+{"paperTitle":"某某科目 2026 年模拟试卷","subject":"某某科目","grade":"高二","totalScore":"3","rows":[{"序号":"1","题号":"","题型":"单选题","题干":"","答案":"B","分值":"3"}]}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-paper-doc-adapter.PD-001.de09b5a6",
+  "ruleId": "PD-001",
+  "severity": "warn",
+  "locator": {
+    "row": 1,
+    "field": "questionNo"
+  },
+  "found": "第 1 行 questionNo、stem 都为空",
+  "expected": "questionNo、stem 至少应填写一项"
+}
+~~~
+
+*来源 `dsh-paper-doc-adapter/tests/fixtures/PD-001/PD-001-unsafe.json`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 某行的题号与题干都是空的，会被报出吗？ | 会。`PD-001` 只要求 `questionNo` 与 `stem` 至少填一项，两项都空才报出该行。它只核对是否填写，不判断题目出得好不好、题干是否严谨。 |
