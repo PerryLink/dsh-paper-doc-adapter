@@ -1,6 +1,6 @@
 # dsh-paper-doc-adapter — 试卷解析结构核对
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check
