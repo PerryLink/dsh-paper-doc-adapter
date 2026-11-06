@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-dark.svg">
-  <img src="docs/assets/dsh-paper-doc-adapter-flow-light.svg" width="100%" alt="Fluxo do dsh-paper-doc-adapter: material (JSON/YAML) → a ferramenta paper_doc_adapter → pacote de regras PD-001…PD-008 → achados (qual linha, qual campo, o que está errado) mais ignoradas (as verificações que não puderam rodar, com o motivo)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-hero-en-dark.webp">
+  <img src="docs/assets/dsh-paper-doc-adapter-hero-en-light.webp" width="100%" alt="dsh-paper-doc-adapter: o nome e as frases de valor à esquerda; à direita, a linha 1 de uma prova parseada somente leitura — o número e o enunciado estão vazios, um localizador aponta para row 1 / questionNo + stem, o PD-001 informa ambos vazios diante do esperado, e o registro skipped mostra PD-004 com values não configurado ao lado do pacote de oito regras">
 </picture>
 
 # dsh-paper-doc-adapter
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
 O `dsh-paper-doc-adapter` lê uma prova parseada — o cabeçalho da prova mais uma linha por questão — e verifica a coerência estrutural desse resultado: se cada questão registra número e enunciado, se há resposta ou explicação, se a soma das pontuações iguala o total declarado no cabeçalho, se o tipo de questão vem do vocabulário que você configurar, se o coeficiente de dificuldade cai dentro da sua faixa, se os identificadores estão presentes e são únicos, se há um ponto de conhecimento registrado e se não sobrou nenhum marcador de modelo no enunciado. Ele apenas lista divergências apontáveis dentro do material, nunca altera o material e não emite veredito; toda verificação que não pôde rodar é informada em `skipped` com o motivo, em vez de passar em silêncio.
 
 Para quem é: coordenação pedagógica, de elaboração de provas e de correção — sem precisar de linha de comando. O que você entrega: o material de origem sobre o qual a verificação trabalha (uma tabela, um registro ou um documento); o Excel pode ser convertido antes para JSON/YAML, inclusive no chat se a plataforma permitir.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-paper-doc-adapter: o lado do material (JSON/YAML → parseTable, cabeçalho mais uma linha por questão) à esquerda, o lado das regras (validação com loadRulesetFile) à direita, e oito regras se encontram numa fronteira de dois lados; PD-004 fica tracejado porque values está vazio e cai em skipped; embaixo os registros de issues e skipped se separam">
+</picture>
 
 ## Instalação em três passos
 
@@ -336,7 +341,7 @@ O plugin é **só dados**: `src/model.ts` declara a forma da tabela, o kit compa
 
 O `ACCEPTANCE.csv` registra uma execução real de `pnpm test`: 33/33 casos passando e 0 falhas. A captura do teste rápido está em `docs/assets/quickstart.log` e `docs/assets/quickstart.png`.
 
-Os diagramas são gerados programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (biblioteca padrão do Python, saída SVG, variantes clara e escura) e podem ser reexecutados: `python scripts/gen-readme-assets.py`.
+As figuras são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow + SVG escrito à mão): quatro hero WebP (zh/en × claro/escuro) e dois SVG flow-v5, a partir de `samples/quickstart/` e `rules/paper-doc-adapter.yaml`; para repetir: `python scripts/gen-readme-assets.py`.
 
 ## Família e agradecimentos
 

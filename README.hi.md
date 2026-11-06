@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-dark.svg">
-  <img src="docs/assets/dsh-paper-doc-adapter-flow-light.svg" width="100%" alt="dsh-paper-doc-adapter डेटा प्रवाह: सामग्री (JSON/YAML) → paper_doc_adapter टूल → नियम पैक PD-001…PD-008 → issues (कौन-सी पंक्ति, कौन-सा फ़ील्ड, क्या गलत है) और skipped (जो जाँच नहीं चल सकीं, उनके कारण के साथ)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-hero-en-dark.webp">
+  <img src="docs/assets/dsh-paper-doc-adapter-hero-en-light.webp" width="100%" alt="dsh-paper-doc-adapter: बाईं ओर प्लगइन का नाम और मूल्य पंक्तियाँ; दाईं ओर केवल-पढ़ने योग्य पार्स किए प्रश्नपत्र की पंक्ति 1 — प्रश्न क्रमांक और प्रश्न-वाक्य खाली हैं, locator row 1 / questionNo + stem की ओर इशारा करता है, PD-001 दोनों को अपेक्षा के विरुद्ध खाली बताता है, और skipped रजिस्टर में PD-004 के values अकॉन्फ़िगर दिखते हैं, साथ में आठ-नियम पैक">
 </picture>
 
 # dsh-paper-doc-adapter
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
 `dsh-paper-doc-adapter` एक पार्स किया गया प्रश्नपत्र पढ़ता है — प्रश्नपत्र की शीर्षक पंक्ति और हर प्रश्न की एक पंक्ति — और उस पार्स परिणाम की अपनी संरचनात्मक संगति जाँचता है: हर प्रश्न ने अपना क्रमांक और प्रश्न-वाक्य दर्ज किया है या नहीं, उत्तर या व्याख्या में से कम से कम एक मौजूद है या नहीं, प्रश्नों के अंकों का योग शीर्षक में लिखे कुल अंक के बराबर है या नहीं, प्रश्न का प्रकार आपके कॉन्फ़िगर किए शब्दकोश से आता है या नहीं, कठिनाई गुणांक आपकी सीमा में पड़ता है या नहीं, प्रश्न पहचानकर्ता मौजूद और अद्वितीय हैं या नहीं, कोई ज्ञान-बिंदु दर्ज है या नहीं, और प्रश्न-वाक्य में कोई अनदले हुए टेम्पलेट प्लेसहोल्डर बचा है या नहीं। यह केवल सामग्री के भीतर इंगित की जा सकने वाली असंगतियाँ सूचीबद्ध करता है, सामग्री को कभी नहीं बदलता और कोई निर्णायक निष्कर्ष नहीं देता; जो जाँच नहीं चल सकी, वह चुपचाप पास होने के बजाय `skipped` में कारण के साथ दर्ज होती है।
 
 किसके लिए: परीक्षा, प्रश्न-निर्माण और मूल्यांकन प्रशासन — कमांड लाइन की जानकारी ज़रूरी नहीं। आप क्या देते हैं: वही मूल सामग्री जिस पर यह जाँच चलती है (कोई तालिका, रजिस्टर या दस्तावेज़); Excel को पहले JSON/YAML में बदला जा सकता है, चैट में भी अगर प्लेटफ़ॉर्म सहयता दे।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="dsh-paper-doc-adapter संरचना: बाईं ओर सामग्री पक्ष (JSON/YAML → parseTable, शीर्षक और हर प्रश्न की एक पंक्ति), दाईं ओर नियम पक्ष (loadRulesetFile सत्यापन), बीच में आठ नियम दो-पक्षीय सीमा पर मिलते हैं; PD-004 डैशदार है क्योंकि values खाली है और skipped में जाता है; नीचे issues और skipped रजिस्टर अलग होते हैं">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -336,7 +341,7 @@ pnpm pack            # प्रकाशित tarball
 
 `ACCEPTANCE.csv` `pnpm test` का एक वास्तविक रन दर्ज करता है: 33/33 केस पास, 0 विफल। तेज़ परीक्षण का कैप्चर `docs/assets/quickstart.log` और `docs/assets/quickstart.png` में है।
 
-चित्र [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से प्रोग्रामेटिक रूप से बनते हैं (Python मानक लाइब्रेरी, SVG आउटपुट, हल्का और गहरा संस्करण) और दोबारा चलाए जा सकते हैं: `python scripts/gen-readme-assets.py`.
+चित्र [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से प्रोग्रामेटिक रूप से बनते हैं (Pillow + हस्तलिखित SVG): चार hero WebP (zh/en × हल्का/गहरा) और दो flow-v5 SVG, जो `samples/quickstart/` और `rules/paper-doc-adapter.yaml` से लिए गए हैं; दोबारा चलाएँ: `python scripts/gen-readme-assets.py`.
 
 ## परिवार और आभार
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-dark.svg">
-  <img src="docs/assets/dsh-paper-doc-adapter-flow-light.svg" width="100%" alt="dsh-paper-doc-adapter data flow: material (JSON/YAML) → the paper_doc_adapter tool → rule pack PD-001…PD-008 → issues (which row, which field, what is off) plus skipped (the checks that could not run, with their reason)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-hero-en-dark.webp">
+  <img src="docs/assets/dsh-paper-doc-adapter-hero-en-light.webp" width="100%" alt="dsh-paper-doc-adapter: the plugin name and value lines on the left; on the right, row 1 of a read-only parsed paper — the question number and stem are empty, a locator points at row 1 / questionNo + stem, PD-001 reports both empty against the expectation, and the skipped register shows PD-004 with values not configured beside the eight-rule pack">
 </picture>
 
 # dsh-paper-doc-adapter
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
 `dsh-paper-doc-adapter` reads one parsed exam paper — the paper header plus one row per question — and checks that parse result's own structural self-consistency: that each question records its number and stem, that an answer or an explanation is present, that the question scores total the paper score the header states, that the question type comes from the vocabulary you configure, that the difficulty coefficient falls inside your range, that question identifiers are present and unique, that a knowledge point is recorded, and that no template placeholder survives in the stem. It lists only differences it can point at inside the material, never modifies the material, and pronounces no verdict; every check that could not run is reported in `skipped` with its reason instead of passing silently.
 
 Who it is for: exam, question-setting and marking administrators — no command line required. What you give it: the source material the check works on (a table, register or document); Excel can be converted to JSON/YAML first, in chat if the platform supports it.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="dsh-paper-doc-adapter structure: the material side (JSON/YAML → parseTable, header plus one row per question) on the left, the rule side (loadRulesetFile validation) on the right, and eight rules meeting on a two-sided boundary; PD-004 is dashed because values is empty and falls into skipped; at the bottom the issues and skipped registers split">
+</picture>
 
 ## Three-step setup
 
@@ -336,7 +341,7 @@ The plugin is **data-only**: `src/model.ts` declares the table shape, the shared
 
 `ACCEPTANCE.csv` records one real run of `pnpm test`: 33/33 cases passing, 0 failing cases. The quickstart capture lives in `docs/assets/quickstart.log` and `docs/assets/quickstart.png`.
 
-The diagrams are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python standard library, SVG output, light and dark variants) and can be re-run: `python scripts/gen-readme-assets.py`.
+The figures are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow + hand-written SVG): four hero WebP files (zh/en × light/dark) and two flow-v5 SVGs, built from `samples/quickstart/` and `rules/paper-doc-adapter.yaml`; re-run with `python scripts/gen-readme-assets.py`.
 
 ## Family & thanks
 

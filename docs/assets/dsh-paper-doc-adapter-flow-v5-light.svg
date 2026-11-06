@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-paper-doc-adapter two-sided boundary gate">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#16122c" flood-opacity="0.1"/></filter>
+</defs>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<text x="44" y="57" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="28" font-weight="700">dsh-paper-doc-adapter</text>
+<text x="44" y="87" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14.5">材料列 × 规则配置：两侧都成立才核对；缺任一侧，该条自行进 skipped。</text>
+<text x="1056" y="55" fill="#4B67B4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11.5" text-anchor="end">tool paper_doc_adapter · ruleset 2026.1</text>
+<text x="1056" y="75" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" text-anchor="end">rules/paper-doc-adapter.yaml · 8 rules · 7 kinds</text>
+<line x1="44" y1="104" x2="1056" y2="104" stroke="#e7e4f0" stroke-width="1.5"/>
+<text x="48" y="134" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700">材料侧 · material</text>
+<text x="48" y="157" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">JSON | YAML → parseTable · 表头 + 每题一行</text>
+<text x="1056" y="134" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700" text-anchor="end">规则侧 · rules</text>
+<text x="1056" y="157" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" text-anchor="end">loadRulesetFile 校验 → 8 条规则 · 依据类型封顶</text>
+<text x="550" y="134" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700" text-anchor="middle">边界 · 两侧合取</text>
+<text x="550" y="157" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">任一侧缺 → skipped</text>
+<line x1="550" y1="172" x2="550" y2="560" stroke="#4B67B4" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.55"/>
+<rect x="44" y="188" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="188" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="205" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">题号 · 题干</text>
+<text x="58" y="221" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">questionNo · stem</text>
+<text x="618" y="205" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">presenceAny</text>
+<text x="618" y="221" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">fields: questionNo, stem</text>
+<text x="1044" y="205" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">warn</text>
+<line x1="496" y1="209" x2="504" y2="209" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="209" x2="604" y2="209" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="194" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="210" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-001</text>
+<circle cx="587" cy="200" r="3.4" fill="#b45309"/>
+<rect x="44" y="234" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="234" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="251" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">答案 · 解析</text>
+<text x="58" y="267" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">answer · explanation</text>
+<text x="618" y="251" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">presenceAny</text>
+<text x="618" y="267" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">fields: answer, explanation</text>
+<text x="1044" y="251" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">warn</text>
+<line x1="496" y1="255" x2="504" y2="255" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="255" x2="604" y2="255" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="240" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="256" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-002</text>
+<circle cx="587" cy="246" r="3.4" fill="#b45309"/>
+<rect x="44" y="280" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="280" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="297" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">分值 + 表头总分</text>
+<text x="58" y="313" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">score + totalScore</text>
+<text x="618" y="297" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">sum</text>
+<text x="618" y="313" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">headerField: totalScore · tol 0.01</text>
+<text x="1044" y="297" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">warn</text>
+<line x1="496" y1="301" x2="504" y2="301" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="301" x2="604" y2="301" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="286" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="302" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-003</text>
+<circle cx="587" cy="292" r="3.4" fill="#b45309"/>
+<rect x="44" y="326" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="326" width="452" height="42" rx="11" fill="#ffffff" stroke="#b45309" stroke-width="1.8" stroke-dasharray="5 4"/>
+<text x="58" y="343" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">题型</text>
+<text x="58" y="359" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">questionType</text>
+<text x="618" y="343" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">enum</text>
+<text x="618" y="359" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">values: []</text>
+<text x="1044" y="343" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">info</text>
+<text x="1044" y="359" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">未配置</text>
+<line x1="496" y1="347" x2="504" y2="347" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="347" x2="604" y2="347" stroke="#b45309" stroke-width="2" stroke-dasharray="4 3"/>
+<rect x="504" y="332" width="92" height="30" rx="15" fill="#ffffff" stroke="#b45309" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="550" y="348" fill="#b45309" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-004</text>
+<circle cx="587" cy="338" r="3.4" fill="#4B67B4"/>
+<rect x="44" y="372" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="372" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="389" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">难度</text>
+<text x="58" y="405" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">difficulty</text>
+<text x="618" y="389" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">number</text>
+<text x="618" y="405" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">min 0 · max 1</text>
+<text x="1044" y="389" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">info</text>
+<line x1="496" y1="393" x2="504" y2="393" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="393" x2="604" y2="393" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="378" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="394" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-005</text>
+<circle cx="587" cy="384" r="3.4" fill="#4B67B4"/>
+<rect x="44" y="418" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="418" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="435" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">题目标识</text>
+<text x="58" y="451" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">yottaId</text>
+<text x="618" y="435" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">unique</text>
+<text x="618" y="451" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">field: yottaId</text>
+<text x="1044" y="435" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">warn</text>
+<line x1="496" y1="439" x2="504" y2="439" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="439" x2="604" y2="439" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="424" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="440" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-006</text>
+<circle cx="587" cy="430" r="3.4" fill="#b45309"/>
+<rect x="44" y="464" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="464" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="481" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">知识点</text>
+<text x="58" y="497" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">knowledge</text>
+<text x="618" y="481" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">presence</text>
+<text x="618" y="497" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">field: knowledge</text>
+<text x="1044" y="481" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">warn</text>
+<line x1="496" y1="485" x2="504" y2="485" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="485" x2="604" y2="485" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="470" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="486" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-007</text>
+<circle cx="587" cy="476" r="3.4" fill="#b45309"/>
+<rect x="44" y="510" width="452" height="42" rx="11" fill="#f5f2fb" stroke="#e7e4f0" stroke-width="1.2"/>
+<rect x="604" y="510" width="452" height="42" rx="11" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.2"/>
+<text x="58" y="527" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13.5" font-weight="700">题干</text>
+<text x="58" y="543" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">stem</text>
+<text x="618" y="527" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700">containsAny</text>
+<text x="618" y="543" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">terms: 11 项占位符</text>
+<text x="1044" y="527" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">warn</text>
+<line x1="496" y1="531" x2="504" y2="531" stroke="#e7e4f0" stroke-width="2"/>
+<line x1="596" y1="531" x2="604" y2="531" stroke="#e7e4f0" stroke-width="2"/>
+<rect x="504" y="516" width="92" height="30" rx="15" fill="#ffffff" stroke="#4B67B4" stroke-width="1.5"/>
+<text x="550" y="532" fill="#141419" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="13" font-weight="700" text-anchor="middle">PD-008</text>
+<circle cx="587" cy="522" r="3.4" fill="#b45309"/>
+<path d="M550 552 V564 H289 V566" fill="none" stroke="#4B67B4" stroke-width="2"/>
+<path d="M550 564 H811 V566" fill="none" stroke="#4B67B4" stroke-width="2"/>
+<path d="M289 573 L282 562 L296 562 Z" fill="#4B67B4"/>
+<path d="M811 573 L804 562 L818 562 Z" fill="#4B67B4"/>
+<rect x="44" y="574" width="490" height="56" rx="18" fill="#eef2fb" stroke="#c6d0ea" stroke-width="1.5" filter="url(#soft)"/>
+<rect x="566" y="574" width="490" height="56" rx="18" fill="#fdf3e9" stroke="#e6d0ab" stroke-width="1.5" filter="url(#soft)"/>
+<text x="60" y="597" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700">issues · 差异清单</text>
+<text x="60" y="617" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11">locator.row · column · found / expected</text>
+<rect x="468" y="586" width="52" height="22" rx="11" fill="#ffffff" stroke="#c6d0ea" stroke-width="1.2"/>
+<text x="494" y="601" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" font-weight="700" text-anchor="middle">1 条</text>
+<text x="582" y="597" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700">skipped · 未执行</text>
+<text x="582" y="617" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">reason 逐条写明，绝不静默通过</text>
+<rect x="990" y="586" width="52" height="22" rx="11" fill="#ffffff" stroke="#e6d0ab" stroke-width="1.2"/>
+<text x="1016" y="601" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" font-weight="700" text-anchor="middle">1 条</text>
+<text x="44" y="650" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">只读材料 · 无网络 · 无模型调用 · 不改原件 · 不作定性结论</text>
+<text x="550" y="650" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">实线 · 两侧成立　虚线 · 缺侧进 skipped</text>
+<text x="1056" y="650" fill="#8f94a4" font-family="'Consolas','SFMono-Regular','Menlo',ui-monospace,monospace" font-size="11" text-anchor="end">buildView → markdown + reportJson</text>
+</svg>

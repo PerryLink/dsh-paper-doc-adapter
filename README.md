@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-dark.svg">
-  <img src="docs/assets/dsh-paper-doc-adapter-flow-light.svg" width="100%" alt="dsh-paper-doc-adapter 数据流：材料（JSON/YAML）→ paper_doc_adapter 工具 → 规则包 PD-001…PD-008 → issues（哪一行、哪一栏、差什么）与 skipped（无法执行的检查及原因）">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-paper-doc-adapter-hero-zh-light.webp" width="100%" alt="dsh-paper-doc-adapter 配图：左侧是插件名与价值句；右侧是一份只读试卷解析材料的第 1 行——题号与题干为空，locator 指向 row 1 / questionNo + stem，PD-001 报出「都为空」并写明期望，旁侧是 skipped 1（PD-004 values 未配置）与 8 条规则">
 </picture>
 
 # dsh-paper-doc-adapter
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
 `dsh-paper-doc-adapter` 读取一份试卷解析结果——试卷表头加每道题一行——核对这份解析结果自身的结构自洽：每道题是否填写了题号与题干、是否填写了答案或解析、各题分值合计是否等于表头写的试卷总分、题型取值是否出自你配置的口径、难度系数是否落在你配置的范围内、题目标识是否齐备且唯一、是否标注了知识点、题干栏是否残留模板占位符。它只列出材料内部能逐条指认的差异，不改动原件，也不作出任何定性结论；无法执行的检查会在 `skipped` 里逐条说明原因，而不是静默通过。
 
 给谁用：教研、命题与阅卷管理，不用懂命令行。你交什么：这项核对用到的原始材料（表格、清单或文书）；Excel 可先转成 JSON/YAML，对话里也能代转。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="dsh-paper-doc-adapter 结构图：左侧材料侧（JSON/YAML → parseTable，表头 + 每题一行），右侧规则侧（loadRulesetFile 校验），中间 8 条规则在边界上做双侧合取；PD-004 因 values 未配置而虚化进入 skipped；底部是 issues（locator.row / column）与 skipped（逐条原因）双出口">
+</picture>
 
 ## 三步上手
 
@@ -336,7 +341,7 @@ pnpm pack            # 发布 tarball
 
 `ACCEPTANCE.csv` 记录了 `pnpm test` 的一次真实运行：33/33 用例通过、0 个失败用例。快速试跑记录见 `docs/assets/quickstart.log` 与 `docs/assets/quickstart.png`。
 
-配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python 标准库，纯 SVG 输出，深浅双版），可重复执行：`python scripts/gen-readme-assets.py`。
+配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Pillow + 手写 SVG）：4 张 hero WebP（zh/en × 深浅）与 2 张 flow-v5 SVG，数据取自 `samples/quickstart/` 与 `rules/paper-doc-adapter.yaml`；复跑：`python scripts/gen-readme-assets.py`。
 
 ## 家族与致谢
 

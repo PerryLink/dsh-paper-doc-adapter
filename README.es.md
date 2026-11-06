@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-dark.svg">
-  <img src="docs/assets/dsh-paper-doc-adapter-flow-light.svg" width="100%" alt="Flujo de dsh-paper-doc-adapter: material (JSON/YAML) → la herramienta paper_doc_adapter → paquete de reglas PD-001…PD-008 → hallazgos (qué fila, qué campo, qué falla) más omitidas (las comprobaciones que no pudieron ejecutarse, con su motivo)">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-hero-en-dark.webp">
+  <img src="docs/assets/dsh-paper-doc-adapter-hero-en-light.webp" width="100%" alt="dsh-paper-doc-adapter: el nombre y las frases de valor a la izquierda; a la derecha, la fila 1 de un examen parseado de solo lectura —el número y el enunciado están vacíos, un localizador apunta a row 1 / questionNo + stem, PD-001 informa ambos vacíos frente a lo esperado, y el registro skipped muestra PD-004 con values sin configurar junto al paquete de ocho reglas">
 </picture>
 
 # dsh-paper-doc-adapter
@@ -39,6 +39,11 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
 `dsh-paper-doc-adapter` lee un examen parseado —la cabecera del examen más una fila por pregunta— y verifica la coherencia estructural de ese resultado de parseo: que cada pregunta registre su número y su enunciado, que exista una respuesta o una explicación, que la suma de puntajes de las preguntas iguale el total que declara la cabecera, que el tipo de pregunta provenga del vocabulario que configures, que el coeficiente de dificultad caiga dentro de tu rango, que los identificadores estén presentes y sean únicos, que haya un punto de conocimiento registrado y que no sobreviva ningún marcador de plantilla en el enunciado. Solo lista diferencias señalables dentro del material, nunca modifica el material y no emite veredicto alguno; toda comprobación que no pudo ejecutarse se informa en `skipped` con su motivo en lugar de pasar en silencio.
 
 Para quién es: administración docente, de elaboración de exámenes y de calificación —sin necesidad de línea de comandos. Qué le entregas: el material de origen sobre el que trabaja la comprobación (una tabla, un registro o un documento); Excel puede convertirse antes a JSON/YAML, incluso en el chat si la plataforma lo permite.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-paper-doc-adapter-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="Estructura de dsh-paper-doc-adapter: el lado del material (JSON/YAML → parseTable, cabecera más una fila por pregunta) a la izquierda, el lado de las reglas (validación con loadRulesetFile) a la derecha, y ocho reglas que se encuentran en una frontera de dos lados; PD-004 aparece discontinuo porque values está vacío y pasa a skipped; abajo se separan los registros de issues y skipped">
+</picture>
 
 ## Instalación en tres pasos
 
@@ -336,7 +341,7 @@ El plugin es **solo datos**: `src/model.ts` declara la forma de la tabla, el kit
 
 `ACCEPTANCE.csv` registra una ejecución real de `pnpm test`: 33/33 casos correctos y 0 fallos. La captura de la prueba rápida está en `docs/assets/quickstart.log` y `docs/assets/quickstart.png`.
 
-Los diagramas se generan programáticamente con [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (biblioteca estándar de Python, salida SVG, variantes clara y oscura) y se pueden volver a ejecutar: `python scripts/gen-readme-assets.py`.
+Las figuras se generan programáticamente con [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow + SVG escrito a mano): cuatro hero WebP (zh/en × claro/oscuro) y dos SVG flow-v5, a partir de `samples/quickstart/` y `rules/paper-doc-adapter.yaml`; para repetirlo: `python scripts/gen-readme-assets.py`.
 
 ## Familia y agradecimientos
 
