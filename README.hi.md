@@ -45,6 +45,11 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
   <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="dsh-paper-doc-adapter संरचना: बाईं ओर सामग्री पक्ष (JSON/YAML → parseTable, शीर्षक और हर प्रश्न की एक पंक्ति), दाईं ओर नियम पक्ष (loadRulesetFile सत्यापन), बीच में आठ नियम दो-पक्षीय सीमा पर मिलते हैं; PD-004 डैशदार है क्योंकि values खाली है और skipped में जाता है; नीचे issues और skipped रजिस्टर अलग होते हैं">
 </picture>
 
+![dsh-paper-doc-adapter का असली टर्मिनल रन](docs/assets/dsh-paper-doc-adapter-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल** (npm पर `0.2.10` प्रकाशित है; पैकेज प्रकाशन से पहले बनाया जाता है और npm पैकेज में `lib/` पहले से है):

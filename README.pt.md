@@ -45,6 +45,11 @@ Para quem é: coordenação pedagógica, de elaboração de provas e de correç�
   <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-paper-doc-adapter: o lado do material (JSON/YAML → parseTable, cabeçalho mais uma linha por questão) à esquerda, o lado das regras (validação com loadRulesetFile) à direita, e oito regras se encontram numa fronteira de dois lados; PD-004 fica tracejado porque values está vazio e cai em skipped; embaixo os registros de issues e skipped se separam">
 </picture>
 
+![dsh-paper-doc-adapter: execução real de terminal](docs/assets/dsh-paper-doc-adapter-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instalar** (`0.2.10` está publicada no npm; o pacote é compilado antes de publicar e o pacote npm já contém `lib/`):

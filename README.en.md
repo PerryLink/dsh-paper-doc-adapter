@@ -45,6 +45,11 @@ Who it is for: exam, question-setting and marking administrators — no command 
   <img src="docs/assets/dsh-paper-doc-adapter-flow-v5-light.svg" width="100%" alt="dsh-paper-doc-adapter structure: the material side (JSON/YAML → parseTable, header plus one row per question) on the left, the rule side (loadRulesetFile validation) on the right, and eight rules meeting on a two-sided boundary; PD-004 is dashed because values is empty and falls into skipped; at the bottom the issues and skipped registers split">
 </picture>
 
+![dsh-paper-doc-adapter: real terminal run](docs/assets/dsh-paper-doc-adapter-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
+
 ## Three-step setup
 
 1. **Install** (`0.2.10` is published on npm; this package is built before publishing and the npm package already contains `lib/`):
