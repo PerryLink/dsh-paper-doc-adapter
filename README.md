@@ -11,6 +11,8 @@
 
 面向教研、命题与阅卷管理的一份本地核对：把试卷解析结果（表头 + 每题一行）交给它，8 条规则核对结构自洽，输出可逐条指认的差异清单；不改原件，也不作出定性结论。
 
+最近一次核验：DeepSeek Harness `dsh-v0.2.3-alpha.1`（2026-11-22）。
+
 [安装](#三步上手) · [配置](#配置) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -51,13 +53,13 @@ dsh plugin --profile <name> add dsh-paper-doc-adapter
 
 ## 三步上手
 
-1. **安装**（npm 通道已发布 `0.2.10`；本包发布前需构建，npm 包内已含 `lib/`）：
+1. **安装**（npm 通道已发布 `0.2.12`；本包发布前需构建，npm 包内已含 `lib/`）：
 
    ```sh
    # npm 通道（已发布版本）
    dsh plugin --profile web add dsh-paper-doc-adapter
    # tarball 通道：本仓库 pnpm pack 后
-   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.10.tgz
+   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.12.tgz
    ```
 
 2. **最小配置**（默认即可用；按需换规则库或停用某条）：

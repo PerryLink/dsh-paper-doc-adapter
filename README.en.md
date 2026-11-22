@@ -11,6 +11,8 @@
 
 A local check for exam and teaching administrators: hand it one parsed paper (header plus one row per question), eight rules test the result's structural self-consistency, and the output is a list you can point at; the material itself is never modified, and no verdict is pronounced.
 
+Last verified on DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Install](#three-step-setup) · [Configuration](#configuration) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -49,16 +51,15 @@ Who it is for: exam, question-setting and marking administrators — no command 
 
 *Animated replay of a real run recorded in this repository.*
 
-
 ## Three-step setup
 
-1. **Install** (`0.2.10` is published on npm; this package is built before publishing and the npm package already contains `lib/`):
+1. **Install** (`0.2.12` is published on npm; this package is built before publishing and the npm package already contains `lib/`):
 
    ```sh
    # npm channel (published releases)
    dsh plugin --profile web add dsh-paper-doc-adapter
    # tarball channel: pnpm pack in this repo, then
-   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.10.tgz
+   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.12.tgz
    ```
 
 2. **Minimal config** (the defaults work; swap the rule pack or stop a rule as needed):

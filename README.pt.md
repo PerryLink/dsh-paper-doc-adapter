@@ -11,6 +11,8 @@
 
 Uma verificação local para coordenação pedagógica e de provas: você entrega uma prova parseada (cabeçalho mais uma linha por questão), oito regras testam a coerência estrutural do resultado e a saída é uma lista apontável; o material nunca é alterado e nenhum veredito é emitido.
 
+Última verificação: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalar](#instalação-em-três-passos) · [Configuração](#configuração) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -49,16 +51,15 @@ Para quem é: coordenação pedagógica, de elaboração de provas e de correç�
 
 *Repetição animada de uma execução real registrada neste repositório.*
 
-
 ## Instalação em três passos
 
-1. **Instalar** (`0.2.10` está publicada no npm; o pacote é compilado antes de publicar e o pacote npm já contém `lib/`):
+1. **Instalar** (`0.2.12` está publicada no npm; o pacote é compilado antes de publicar e o pacote npm já contém `lib/`):
 
    ```sh
    # canal npm (versões publicadas)
    dsh plugin --profile web add dsh-paper-doc-adapter
    # canal tarball: pnpm pack neste repositório e depois
-   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.10.tgz
+   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.12.tgz
    ```
 
 2. **Configuração mínima** (os padrões funcionam; troque o pacote de regras ou pare uma regra conforme a necessidade):

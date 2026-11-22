@@ -11,6 +11,8 @@
 
 Una comprobación local para administración docente y de exámenes: le entregas un examen parseado (cabecera más una fila por pregunta), ocho reglas verifican la coherencia estructural del resultado y la salida es una lista señalable; el material nunca se modifica y no se emite ningún veredicto.
 
+Última verificación: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalar](#instalación-en-tres-pasos) · [Configuración](#configuración) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -49,16 +51,15 @@ Para quién es: administración docente, de elaboración de exámenes y de calif
 
 *Repetición animada de una ejecución real registrada en este repositorio.*
 
-
 ## Instalación en tres pasos
 
-1. **Instalar** (`0.2.10` está publicada en npm; el paquete se compila antes de publicarse y el paquete npm ya incluye `lib/`):
+1. **Instalar** (`0.2.12` está publicada en npm; el paquete se compila antes de publicarse y el paquete npm ya incluye `lib/`):
 
    ```sh
    # canal npm (versiones publicadas)
    dsh plugin --profile web add dsh-paper-doc-adapter
    # canal tarball: pnpm pack en este repositorio y luego
-   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.10.tgz
+   dsh plugin --profile web add ./dsh-paper-doc-adapter-0.2.12.tgz
    ```
 
 2. **Configuración mínima** (los valores por defecto funcionan; cambia el paquete de reglas o detén una regla según necesidad):
