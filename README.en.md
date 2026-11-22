@@ -7,6 +7,8 @@
 
 # dsh-paper-doc-adapter
 
+Current version `0.2.13`.
+
 **Reports every mismatch in a parsed exam paper — which row, which field, what is off.**
 
 A local check for exam and teaching administrators: hand it one parsed paper (header plus one row per question), eight rules test the result's structural self-consistency, and the output is a list you can point at; the material itself is never modified, and no verdict is pronounced.
